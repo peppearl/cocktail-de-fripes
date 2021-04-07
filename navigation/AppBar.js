@@ -1,16 +1,11 @@
 import React from 'react';
 import { Appbar } from 'react-native-paper';
+//import SearchBar from '../components/SearchBar'
 
 export default function AppBar() {
 
     const _handleSearch = () => console.log('Searching');
     const _handleMore = () => console.log('Shown more');
-
-    const [index, setIndex] = React.useState(0);
-    const [routes] = React.useState([
-        { key: 'home', title: 'Home'},
-        { key: 'blog', title: 'Blog'},
-    ]);
 
     return (
         <Appbar.Header>
