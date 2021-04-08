@@ -1,10 +1,10 @@
 import React from 'react';
 import VerticalList from "./VerticalList";
 
-export default function EntertainmentNews({data}) {
+export default function PoliticalNews({data}) {
     return (
         <VerticalList
-            title='Entertainment News'
+            title='Political News'
             data={data}
         />
     )
