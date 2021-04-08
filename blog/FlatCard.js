@@ -6,7 +6,7 @@ import Subtitle from "./Subtitle";
 export default function FlatCard({item}) {
     const {thumbnail, title, desc} = item;
     return (
-        <View style={[styles.container, style]}>
+        <View style={[styles.container, styles]}>
             <Image
                 source={{uri : thumbnail}}
                 style={styles.image}
