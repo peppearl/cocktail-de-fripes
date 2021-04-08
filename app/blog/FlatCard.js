@@ -3,16 +3,16 @@ import {View, StyleSheet, Image} from "react-native";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 
-export default function BlockCard({style, imageStyle, item}) {
-    const {thumbnail, title, desc} = item
+export default function FlatCard({item}) {
+    const {thumbnail, title, desc} = item;
     return (
-        <View style={[styles.container, style]}>
+        <View style={[styles.container, styles]}>
             <Image
                 source={{uri : thumbnail}}
-                style={[styles.image, imageStyle]}
+                style={styles.image}
             />
             <View style={styles.contentContainer}>
-                <Title size={20}>{title}</Title>
+                <Title size={15}>{title}</Title>
                 <Subtitle>{desc}</Subtitle>
             </View>
         </View>
@@ -21,17 +21,20 @@ export default function BlockCard({style, imageStyle, item}) {
 
 const styles = StyleSheet.create({
     container: {
-        width: '100%',
-        height: 300,
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: 100,
         backgroundColor: '#fff',
         borderRadius: 8,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        marginBottom: 10
     },
     image: {
-        width: '100%',
-        height: 200,
+        flex: 0.35,
+        height: '100%',
     },
     contentContainer: {
-        padding: 5
+        flex: 0.65,
+        paddingHorizontal: 5
     }
 })

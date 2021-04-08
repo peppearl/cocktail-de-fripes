@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, FlatList} from "react-native";
+import {FlatList} from "react-native";
 import Title from "./Title";
 import SmallCard from "./SmallCard";
 

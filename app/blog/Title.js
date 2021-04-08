@@ -4,7 +4,8 @@ import {Text} from "react-native";
 export default function Title({children, numberOfLines = 2, size}) {
     return <Text
         numberOfLines={numberOfLines}
-        style={{ fontWeight: 'bold', fontSize: size}}
+        style={{ fontWeight: 'bold', fontSize: size,
+            marginBottom: 10}}
     >
         {children}
     </Text>
