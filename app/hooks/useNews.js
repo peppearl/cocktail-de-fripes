@@ -14,7 +14,16 @@ export default function useNews() {
     }
 
     const filterByCategory = (data, category) => {
-        return [...data].filter(item => item.category === category).reverse().splice(0, qty)
+        const result = [...data]
+            .filter(item => item.category === category)
+            .reverse()
+            .splice(0, qty)
+
+        if(result.length === qty) {
+            result.push({type: 'viewMore', category: category, id: category})
+        }
+
+        return result
     }
 
     const filterMultipleNews = async () => {

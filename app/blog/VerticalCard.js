@@ -1,18 +1,14 @@
 import React from 'react';
 import {StyleSheet} from "react-native";
-import BlockCard from "./BlockCard";
+import FlatCard from "./FlatCard";
 import ViewMore from "./ViewMore";
 
-export default function SmallCard({item}) {
+export default function VerticalCard({item}) {
     if(item.type === 'viewMore'){
-        return <ViewMore style={styles.viewMore}/>
+        return <ViewMore/>
     }
     return (
-        <BlockCard
-            item={item}
-            style={styles.container}
-            imageStyle={styles.image}
-        />
+        <FlatCard item={item}/>
     )
 }
 
@@ -29,9 +25,5 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         padding: 5
-    },
-    viewMore: {
-        width: 180,
-        height: 200,
     }
 })
