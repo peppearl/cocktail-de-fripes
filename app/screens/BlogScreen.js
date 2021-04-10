@@ -9,7 +9,6 @@ import PoliticalNews from "../blog/PoliticalNews";
 
 
 export default function BlogScreen() {
-
     const [
         featuredNews,
         politicalNews,
@@ -19,7 +18,6 @@ export default function BlogScreen() {
     ] = useNews()
 
     return (
-
         <ScrollView>
             <View style={styles.container}>
                 <FeaturedNews

@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from "react-native";
 import FlatCard from "./FlatCard";
-import ViewMore from "./ViewMore";
+import ViewMore from "../common/ViewMore";
 
 export default function VerticalCard({item}) {
     if(item.type === 'viewMore'){

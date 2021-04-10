@@ -1,5 +1,5 @@
 import React from 'react';
-import HorizontalList from "./HorizontalList";
+import HorizontalList from "./lists/HorizontalList";
 
 export default function TechNews({data}) {
     return (

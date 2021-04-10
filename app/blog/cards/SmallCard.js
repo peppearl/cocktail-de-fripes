@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet} from "react-native";
 import BlockCard from "./BlockCard";
-import ViewMore from "./ViewMore";
+import ViewMore from "../common/ViewMore";
 
 export default function SmallCard({item}) {
     if(item.type === 'viewMore'){

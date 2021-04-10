@@ -1,7 +1,7 @@
 import React from 'react';
 import {FlatList} from "react-native";
-import Title from "./Title";
-import SmallCard from "./SmallCard";
+import Title from "../common/Title";
+import SmallCard from "../cards/SmallCard";
 
 export default function HorizontalList({title, data}) {
     return (

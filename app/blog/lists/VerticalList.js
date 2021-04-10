@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from "react-native";
-import Title from "./Title";
-import VerticalCard from "./VerticalCard";
+import Title from "../common/Title";
+import VerticalCard from "../cards/VerticalCard";
 
 export default function VerticalList({title, data}) {
     return (

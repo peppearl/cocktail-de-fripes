@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Image} from "react-native";
-import Title from "./Title";
-import Subtitle from "./Subtitle";
+import Title from "../common/Title";
+import Subtitle from "../common/Subtitle";
 
 export default function FlatCard({item}) {
     const {thumbnail, title, desc} = item;

@@ -1,11 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Image} from 'react-native';
-import Title from './Title';
-import Subtitle from './Subtitle';
+import {View, StyleSheet, Image, TouchableWithoutFeedback} from 'react-native';
+import Title from '../common/Title';
+import Subtitle from '../common/Subtitle';
 
-export default function BlockCard({ style, imageStyle, item }) {
+export default function BlockCard({ style, imageStyle, item, onPress }) {
     const { thumbnail, title, desc } = item;
     return (
+        <TouchableWithoutFeedback onPress={onPress}>
             <View style={[styles.container, style]}>
                 <Image source={{ uri: thumbnail }} style={[styles.image, imageStyle]} />
                 <View style={styles.contentContainer}>
@@ -13,6 +14,7 @@ export default function BlockCard({ style, imageStyle, item }) {
                     <Subtitle>{desc}</Subtitle>
                 </View>
             </View>
+        </TouchableWithoutFeedback>
     );
 };
 
