@@ -9,7 +9,9 @@ export default function VerticalList({title, data}) {
     const navigation = useNavigation();
     return (
         <View>
-            <Title size={20} style={styles.container}>{title}</Title>
+            {title &&
+                <Title size={20} style={styles.container}>{title}</Title>
+            }
             <View>
                 {data.map(item =>
                     <VerticalCard
