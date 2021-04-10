@@ -2,13 +2,14 @@ import React, {useState, useEffect} from 'react';
 import {View, StyleSheet, Image, ScrollView, Text, Dimensions} from "react-native";
 import newsApi from "../api/newsApi";
 import HorizontalList from "../blog/lists/HorizontalList";
-//import { useNavigation } from '@react-navigation/native';
+import Close from '../blog/common/Close'
+import { useNavigation } from '@react-navigation/native';
 
-const { width, height } = Dimensions.get('window');
+const {width, height} = Dimensions.get('window');
 
 export default function NewsDetail({route}) {
 
-    //const navigation = useNavigation();
+    const navigation = useNavigation();
 
     const [news, setNews] = useState({});
     const [relatedNews, setRelatedNews] = useState([]);
@@ -30,19 +31,24 @@ export default function NewsDetail({route}) {
         fetchRelatedPosts(postCategory)
     }, [])
     return (
-        <ScrollView style={[styles.container, styles]}>
-            <Image
-                source={{uri : thumbnail}}
-                style={styles.image}
+        <>
+            <ScrollView style={[styles.container, styles]}>
+                <Image
+                    source={{uri: thumbnail}}
+                    style={styles.image}
+                />
+                <View style={styles.contentContainer}>
+                    <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.content}>{content}</Text>
+                </View>
+                <View style={styles.relatedPosts}>
+                    <HorizontalList data={relatedNews} title='Vous aimerez aussi...'/>
+                </View>
+            </ScrollView>
+            <Close
+                onPress={() => {navigation.popToTop()}}
             />
-            <View style={styles.contentContainer}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.content}>{content}</Text>
-            </View>
-            <View style={styles.relatedPosts}>
-                <HorizontalList data={relatedNews} title='Vous aimerez aussi...'/>
-            </View>
-        </ScrollView>
+        </>
     )
 }
 

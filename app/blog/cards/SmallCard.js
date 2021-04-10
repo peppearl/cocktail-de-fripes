@@ -3,12 +3,13 @@ import {StyleSheet} from "react-native";
 import BlockCard from "./BlockCard";
 import ViewMore from "../common/ViewMore";
 
-export default function SmallCard({item}) {
+export default function SmallCard({item, onPress}) {
     if(item.type === 'viewMore'){
         return <ViewMore style={styles.viewMore}/>
     }
     return (
         <BlockCard
+            onPress={onPress}
             item={item}
             style={styles.container}
             imageStyle={styles.image}

@@ -1,12 +1,12 @@
 import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
-import BlogScreen from '../screens/BlogScreen';
 import { BottomNavigation } from 'react-native-paper';
+import BlogStackScreen from "../stack/BlogStackScreen";
 
 const HomeRoute = () => <HomeScreen/>;
-const BlogRoute = () => <BlogScreen />;
+const BlogRoute = () => <BlogStackScreen />;
 
-export default function MainNavigator() {
+export default function BottomNav() {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
         { key: 'home', title: 'Home', icon: 'home', color: '#3F51B5' },
