@@ -4,6 +4,7 @@ import newsApi from "../api/newsApi";
 import HorizontalList from "../blog/lists/HorizontalList";
 import Close from '../blog/common/Close'
 import { useNavigation } from '@react-navigation/native';
+import ActivityIndicator from "../blog/common/ActivityIndicator";
 
 const {width, height} = Dimensions.get('window');
 
@@ -15,8 +16,10 @@ export default function NewsDetail({route}) {
     const [relatedNews, setRelatedNews] = useState([]);
     const {id: postId, category: postCategory} = route.params.item;
     const {thumbnail, title, content} = news;
+    const [loading, setLoading] = useState(false)
 
     const fetchPost = async (id) => {
+        setLoading(true);
         const result = await newsApi.getSingle(id);
         setNews(result);
     }
@@ -24,6 +27,7 @@ export default function NewsDetail({route}) {
     const fetchRelatedPosts = async (category) => {
         const result = await newsApi.getByCategory(postCategory, 6);
         setRelatedNews(result.filter(item => item.id !== postId));
+        setLoading(false);
     }
 
     useEffect(() => {
@@ -32,6 +36,7 @@ export default function NewsDetail({route}) {
     }, [])
     return (
         <>
+            <ActivityIndicator visible={loading}/>
             <ScrollView style={[styles.container, styles]}>
                 <Image
                     source={{uri: thumbnail}}
@@ -46,7 +51,9 @@ export default function NewsDetail({route}) {
                 </View>
             </ScrollView>
             <Close
-                onPress={() => {navigation.popToTop()}}
+                onPress={() => {
+                    navigation.popToTop()
+                }}
             />
         </>
     )

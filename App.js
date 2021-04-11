@@ -13,6 +13,7 @@ export default function App() {
         <BottomNav/>
       </NavigationContainer>
   );
+
 }
 
 // ~/Documents/my_digital_school/bachelor_dev/cocktail_de_fripes/app/cocktail-de-fripes
