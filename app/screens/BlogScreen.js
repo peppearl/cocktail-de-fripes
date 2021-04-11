@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, ScrollView, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import useNews from '../blog/hooks/useNews';
 import FeaturedNews from "../blog/FeaturedNews";
 import BreakingNews from "../blog/BreakingNews";
@@ -8,6 +8,7 @@ import EntertainmentNews from "../blog/EntertainmentNews";
 import PoliticalNews from "../blog/PoliticalNews";
 import SearchBar from "../components/SearchBar";
 import ActivityIndicator from "../blog/common/ActivityIndicator";
+import Screen from "../blog/common/Screen";
 
 
 export default function BlogScreen() {
@@ -24,8 +25,8 @@ export default function BlogScreen() {
     return (
         <>
             <ActivityIndicator visible={loading}/>
-            <ScrollView>
-                <View style={styles.container} isSearchFocused={isSearchFocused}>
+            <Screen isSearchFocused={isSearchFocused}>
+                <View style={styles.container}>
                     <SearchBar setSearchFocused={setSearchFocused}/>
                     <FeaturedNews item={featuredNews}/>
                     <BreakingNews data={breakingNews}/>
@@ -33,7 +34,7 @@ export default function BlogScreen() {
                     <TechNews data={techNews}/>
                     <PoliticalNews data={politicalNews}/>
                 </View>
-            </ScrollView>
+            </Screen>
         </>
     );
 }

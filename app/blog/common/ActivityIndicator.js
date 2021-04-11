@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
 
-const ActivityIndicator = ({ visible }) => {
+export default function ActivityIndicator ({ visible }) {
     if (!visible) return null;
 
     return (
@@ -25,5 +25,3 @@ const styles = StyleSheet.create({
         zIndex: 1,
     },
 });
-
-export default ActivityIndicator;

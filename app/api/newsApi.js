@@ -32,7 +32,7 @@ const getByCategory = async (category, qty) => {
 }
 
 //get one specific article (by id)
-const getSingle = async id => {
+const getSingle = async (id) => {
     try {
         const response = await apiClient.get(`/news/single/${id}`);
 
@@ -44,8 +44,19 @@ const getSingle = async id => {
     }
 };
 
+const searchPost = async (query) => {
+    if (!query) return {};
+    try {
+        const response = await apiClient.post(`/news/search/${query}`);
+        return response.data;
+    } catch (error) {
+        console.log('Une erreur est survenue lors de la recherche', error);
+    }
+};
+
 export default {
     getAll,
     getByCategory,
-    getSingle
+    getSingle,
+    searchPost
 };
