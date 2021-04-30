@@ -6,11 +6,11 @@ import NewsList from '../blog/lists/NewsList';
 import BlogScreen from '../screens/BlogScreen';
 import NewsDetail from '../screens/NewsDetail';
 
-const Stack = createStackNavigator();
+const StackBlog = createStackNavigator();
 
 export default function BlogStackScreen() {
     return (
-        <Stack.Navigator
+        <StackBlog.Navigator
             screenOptions={{
                 headerTransparent: true,
                 headerTitle: '',
@@ -25,13 +25,13 @@ export default function BlogStackScreen() {
                 },
             }}
         >
-            <Stack.Screen
+            <StackBlog.Screen
                 options={{ headerShown: false }}
                 name='Blog'
                 component={BlogScreen}
             />
-            <Stack.Screen name='NewsDetail' component={NewsDetail} />
-            <Stack.Screen name='NewsList' component={NewsList} />
-        </Stack.Navigator>
+            <StackBlog.Screen name='NewsDetail' component={NewsDetail} />
+            <StackBlog.Screen name='NewsList' component={NewsList} />
+        </StackBlog.Navigator>
     );
 };

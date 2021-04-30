@@ -16,14 +16,13 @@ const getAll = async () => {
 
 //get articles by category
 const getByCategory = async (category, qty) => {
-
-    const endpoint = qty ? `/news/${category}/${qty}` : `/news/${category}`
+    const endpoint = qty ? `/news/${category}/${qty}` : `/news/${category}`;
 
     try {
         const response = await apiClient.get(endpoint);
 
-        if(response.data.success) {
-            return response.data.news
+        if (response.data.success) {
+            return response.data.news;
         }
     } catch (error) {
         console.log('Une erreur est survenue lors de la récupération des catégories.', error.message);

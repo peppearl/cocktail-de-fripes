@@ -15,7 +15,7 @@ export default function NewsDetail({route}) {
     const [news, setNews] = useState({});
     const [relatedNews, setRelatedNews] = useState([]);
     const {id: postId, category: postCategory} = route.params.item;
-    const {thumbnail, title, content} = news;
+    const {thumbnail, title, content, date, category} = news;
     const [loading, setLoading] = useState(false)
 
     const fetchPost = async (id) => {
@@ -43,7 +43,9 @@ export default function NewsDetail({route}) {
                     style={styles.image}
                 />
                 <View style={styles.contentContainer}>
+                    <Text style={styles.content}>{category}</Text>
                     <Text style={styles.title}>{title}</Text>
+                    <Text style={styles.content}>Posté le {date}</Text>
                     <Text style={styles.content}>{content}</Text>
                 </View>
                 <View style={styles.relatedPosts}>

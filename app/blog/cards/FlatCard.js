@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, StyleSheet, Image, TouchableWithoutFeedback} from "react-native";
+import {View, StyleSheet, Image, TouchableWithoutFeedback, Text} from "react-native";
 import Title from "../common/Title";
 import Subtitle from "../common/Subtitle";
 
 export default function FlatCard({item, onPress}) {
-    const {thumbnail, title, desc} = item;
+    const {thumbnail, title, desc, date} = item;
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={[styles.container, styles]}>
@@ -15,6 +15,7 @@ export default function FlatCard({item, onPress}) {
                 <View style={styles.contentContainer}>
                     <Title size={15}>{title}</Title>
                     <Subtitle>{desc}</Subtitle>
+                    <Text>Posté le {date}</Text>
                 </View>
             </View>
         </TouchableWithoutFeedback>
