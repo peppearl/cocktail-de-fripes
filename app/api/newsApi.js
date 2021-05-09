@@ -50,6 +50,9 @@ const searchPost = async (query) => {
         return response.data;
     } catch (error) {
         console.log('Une erreur est survenue lors de la recherche', error);
+        //if (error.response.status === 404) {
+        //    console.log('Une erreur est survenue lors de la recherche', error);
+        //}
     }
 };
 

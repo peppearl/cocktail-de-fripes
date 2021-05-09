@@ -1,22 +1,27 @@
 import React from 'react';
-import HomeScreen from '../screens/HomeScreen';
 import { BottomNavigation } from 'react-native-paper';
-import BlogStackScreen from "../stack/BlogStackScreen";
+import BlogStackScreen from "./BlogStackScreen";
+import FavorisScreen from "../screens/FavorisScreen";
+import ThriftStackScreen from "./ThriftStackScreen";
 
-const HomeRoute = () => <HomeScreen/>;
+const ThriftRoute = () => <ThriftStackScreen/>;
 const BlogRoute = () => <BlogStackScreen />;
+const FavorisRoute = () => <FavorisScreen />;
 
 export default function BottomNav() {
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'home', title: 'Home', icon: 'home', color: '#3F51B5' },
+        { key: 'thrift', title: 'Carte', icon: 'map', color: '#3F51B5' },
+        { key: 'favoris', title: 'Favoris', icon: 'heart', color: '#e04391' },
         { key: 'blog', title: 'Blog', icon: 'pen', color: '#009688' },
     ]);
 
     const renderScene = ({route}) => {
         switch (route.key) {
-            case 'home':
-                return <HomeRoute />;
+            case 'thrift':
+                return <ThriftRoute />;
+            case 'favoris':
+                return <FavorisRoute />;
             case 'blog':
                 return <BlogRoute />;
         }

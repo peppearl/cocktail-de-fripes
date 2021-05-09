@@ -48,7 +48,7 @@ export default function SearchBar({setSearchFocused}) {
                 <TextInput
                     style={styles.searchInput}
                     value={query}
-                    placeholder='Rechercher'
+                    placeholder='Recherche'
                     onChange={handleChange}
                     onFocus={() => {
                         setSearchFocused(true)
@@ -76,9 +76,11 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 50,
         backgroundColor: '#fff',
-        borderRadius: 8,
+        borderRadius: 100,
         justifyContent: 'center',
         paddingLeft: 8,
+        borderColor : '#F0D97B',
+        borderWidth: 3,
     },
     searchInput: {
         width: '100%',

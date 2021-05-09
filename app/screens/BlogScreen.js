@@ -9,6 +9,7 @@ import PoliticalNews from "../blog/PoliticalNews";
 import SearchBar from "../components/SearchBar";
 import ActivityIndicator from "../blog/common/ActivityIndicator";
 import Screen from "../blog/common/Screen";
+import Title from "../blog/common/Title";
 
 
 export default function BlogScreen() {
@@ -27,6 +28,9 @@ export default function BlogScreen() {
             <ActivityIndicator visible={loading}/>
             <Screen isSearchFocused={isSearchFocused}>
                 <View style={styles.container}>
+                    <View style={styles.title}>
+                        <Title size={36}>Actualites</Title>
+                    </View>
                     <SearchBar setSearchFocused={setSearchFocused}/>
                     <FeaturedNews item={featuredNews}/>
                     <BreakingNews data={breakingNews}/>
@@ -42,5 +46,9 @@ export default function BlogScreen() {
 const styles = StyleSheet.create({
     container: {
         margin: 15
+    },
+    title: {
+        alignItems: 'center',
+        flex: 1,
     }
 })

@@ -3,7 +3,7 @@ import {View, StyleSheet, Image, ScrollView, Text, Dimensions} from "react-nativ
 import newsApi from "../api/newsApi";
 import HorizontalList from "../blog/lists/HorizontalList";
 import Close from '../blog/common/Close'
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import ActivityIndicator from "../blog/common/ActivityIndicator";
 
 const {width, height} = Dimensions.get('window');
@@ -17,6 +17,8 @@ export default function NewsDetail({route}) {
     const {id: postId, category: postCategory} = route.params.item;
     const {thumbnail, title, content, date, category} = news;
     const [loading, setLoading] = useState(false)
+
+    //const categoryCapitalized = news.category.toUpperCase()
 
     const fetchPost = async (id) => {
         setLoading(true);
@@ -46,7 +48,9 @@ export default function NewsDetail({route}) {
                     <Text style={styles.content}>{category}</Text>
                     <Text style={styles.title}>{title}</Text>
                     <Text style={styles.content}>Posté le {date}</Text>
-                    <Text style={styles.content}>{content}</Text>
+                    <View style={styles.contentPost}>
+                        <Text style={styles.content}>{content}</Text>
+                    </View>
                 </View>
                 <View style={styles.relatedPosts}>
                     <HorizontalList data={relatedNews} title='Vous aimerez aussi...'/>
@@ -81,5 +85,9 @@ const styles = StyleSheet.create({
     },
     relatedPosts: {
         padding: 10
+    },
+    contentPost : {
+        backgroundColor: '#F0D97B',
+        borderRadius: 20
     }
 })
