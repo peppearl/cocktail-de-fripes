@@ -14,12 +14,12 @@ export default function BlogStackScreen() {
             screenOptions={{
                 headerTransparent: true,
                 headerTitle: '',
-                headerTintColor: '#fff',
+                headerTintColor: '#354362',
                 headerLeftContainerStyle: {
                     width: 40,
                     height: 40,
                     borderRadius: 20,
-                    backgroundColor: 'rgba(92,90,91,0.7)',
+                    backgroundColor: '#fff',
                     alignItems: 'center',
                     marginLeft: 10,
                 },

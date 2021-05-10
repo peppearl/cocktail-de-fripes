@@ -33,7 +33,7 @@ export default function SearchModel({visible, data, notFound}) {
                 keyboardShouldPersistTaps='always'
             >
                 {
-                    data.map((item =>
+                    data.map(item => (
                             <FlatCard
                                 item={{item}}
                                 key={item.id}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         position: 'absolute',
-        top: 60,
+        top: 100,
         backgroundColor: 'rgba(0,0,0,0.5)',
         maxHeight: height / 2,
         zIndex: 1,

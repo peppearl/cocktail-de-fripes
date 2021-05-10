@@ -10,9 +10,9 @@ export default function BlockCard({ style, imageStyle, item, onPress }) {
             <View style={[styles.container, style]}>
                 <Image source={{ uri: thumbnail }} style={[styles.image, imageStyle]} />
                 <View style={styles.contentContainer}>
-                    <Title size={15}>{title}</Title>
-                    <Subtitle>{desc}</Subtitle>
-                    <Text>Posté le {date}</Text>
+                    <Title size={18}>{title}</Title>
+                    <Subtitle size={13} numberOfLines={1}>{desc}</Subtitle>
+                    <Text style={styles.date}>Posté le {date}</Text>
                 </View>
             </View>
         </TouchableWithoutFeedback>
@@ -23,8 +23,8 @@ const styles = StyleSheet.create({
     container: {
         width: '100%',
         height: 300,
-        backgroundColor: '#fff',
-        borderRadius: 8,
+        backgroundColor: '#F0D97B',
+        borderRadius: 4,
         overflow: 'hidden'
     },
     image: {
@@ -33,5 +33,10 @@ const styles = StyleSheet.create({
     },
     contentContainer: {
         padding: 5
-    }
+    },
+    date: {
+        marginTop: 2,
+        fontSize: 10,
+        color: 'rgba(53, 67, 98, 0.5)',
+    },
 })

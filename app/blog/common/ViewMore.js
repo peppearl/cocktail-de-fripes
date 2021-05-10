@@ -15,14 +15,15 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#fff',
-        borderRadius: 8,
+        backgroundColor: '#354362',
+        borderRadius: 6,
         width: '100%',
-        height: 50
+        height: 50,
+        marginBottom: 20
     },
     text: {
-        fontSize: 18,
+        fontSize: 14,
         fontWeight: 'bold',
-        color: '#7a74e0'
+        color: '#fff'
     }
 })

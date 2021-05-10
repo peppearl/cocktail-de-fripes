@@ -5,6 +5,7 @@ import HorizontalList from "../blog/lists/HorizontalList";
 import Close from '../blog/common/Close'
 import {useNavigation} from '@react-navigation/native';
 import ActivityIndicator from "../blog/common/ActivityIndicator";
+import Title from "../blog/common/Title";
 
 const {width, height} = Dimensions.get('window');
 
@@ -17,8 +18,6 @@ export default function NewsDetail({route}) {
     const {id: postId, category: postCategory} = route.params.item;
     const {thumbnail, title, content, date, category} = news;
     const [loading, setLoading] = useState(false)
-
-    //const categoryCapitalized = news.category.toUpperCase()
 
     const fetchPost = async (id) => {
         setLoading(true);
@@ -45,15 +44,17 @@ export default function NewsDetail({route}) {
                     style={styles.image}
                 />
                 <View style={styles.contentContainer}>
-                    <Text style={styles.content}>{category}</Text>
-                    <Text style={styles.title}>{title}</Text>
-                    <Text style={styles.content}>Posté le {date}</Text>
-                    <View style={styles.contentPost}>
-                        <Text style={styles.content}>{content}</Text>
-                    </View>
+                    <Text style={styles.contentCat}>{category}</Text>
+                    <Title style={styles.title} size={30} numberOfLines={4}>{title}</Title>
+                    <Text style={styles.date}>Posté le {date}</Text>
                 </View>
-                <View style={styles.relatedPosts}>
-                    <HorizontalList data={relatedNews} title='Vous aimerez aussi...'/>
+                <View style={styles.contentPost}>
+                    <Text style={styles.content}>{content}</Text>
+
+
+                    <View style={styles.relatedPosts}>
+                        <HorizontalList data={relatedNews} title='Vous aimerez aussi...'/>
+                    </View>
                 </View>
             </ScrollView>
             <Close
@@ -71,8 +72,7 @@ const styles = StyleSheet.create({
         height: height / 3,
     },
     contentContainer: {
-        padding: 10,
-        alignItems: 'center',
+        padding: 20,
     },
     title: {
         fontSize: 20,
@@ -80,14 +80,30 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     content: {
-        fontSize: 16,
-        color: '#4e4d4d'
+        fontSize: 18,
+        color: '#354362',
+        padding: 30,
+    },
+    contentCat: {
+        fontSize: 18,
+        color: '#8e96a7',
+        marginBottom: 10
     },
     relatedPosts: {
-        padding: 10
+        padding: 30
     },
-    contentPost : {
+    contentPost: {
         backgroundColor: '#F0D97B',
-        borderRadius: 20
+        borderTopRightRadius: 20,
+        borderTopLeftRadius: 20,
+        alignItems: 'center',
+    },
+    container: {
+        backgroundColor: '#fff'
+    },
+    date: {
+        marginBottom: 20,
+        fontSize: 14,
+        color: '#8e96a7'
     }
 })

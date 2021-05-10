@@ -10,8 +10,8 @@ export default function Close({onPress}) {
                 reverse
                 name='x'
                 type='feather'
-                color='rgba(92, 90, 91, 0.7)'
-                reverseColor='#fff'
+                color='rgba(255,255,255, 0.7)'
+                reverseColor='#354362'
                 style={styles.icon}
                 onPress={onPress}
             />
