@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, StyleSheet, Text, ScrollView, Dimensions} from 'react-native';
+import {View, StyleSheet, Text, ScrollView, Dimensions, FlatList} from 'react-native';
 import FlatCard from "../cards/FlatCard";
 import {useNavigation} from '@react-navigation/native';
+import SearchResult from "../cards/SearchResult";
 
 const {height} = Dimensions.get('window');
 
@@ -28,6 +29,17 @@ export default function SearchModel({visible, data, notFound}) {
 
     return (
         <View style={styles.container}>
+            <FlatList
+                data={data}
+                renderItem={(item) => {
+                    return (<SearchResult
+                        item={item.item}
+                        key={item.id}
+                        onPress={() => navigation.navigate('ThriftDetail', {item})}
+                    />)
+                }}/>
+
+            {/*
             <ScrollView
                 keyboardDismissMode='on-drag'
                 keyboardShouldPersistTaps='always'
@@ -42,6 +54,7 @@ export default function SearchModel({visible, data, notFound}) {
                     ))
                 }
             </ScrollView>
+            */}
         </View>
     );
 };

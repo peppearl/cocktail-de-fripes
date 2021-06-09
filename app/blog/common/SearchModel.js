@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet, Text, ScrollView, Dimensions} from 'react-native';
+import {View, StyleSheet, Text, ScrollView, Dimensions, FlatList, SafeAreaView} from 'react-native';
 import FlatCard from "../cards/FlatCard";
 import {useNavigation} from '@react-navigation/native';
 
@@ -16,7 +16,7 @@ export default function SearchModel({visible, data, notFound}) {
         <View style={[
             styles.container,
             {justifyContent: 'center', alignItems: 'center'}
-            ]}
+        ]}
         >
             <Text
                 style={{color: "#fff", fontSize: 20, fontWeight: 'bold'}}
@@ -28,6 +28,17 @@ export default function SearchModel({visible, data, notFound}) {
 
     return (
         <View style={styles.container}>
+            <FlatList
+                data={data}
+                renderItem={(item) => {
+                    return (<FlatCard
+                        item={item.item}
+                        key={item.id}
+                        onPress={() => navigation.navigate('NewsDetail', {item})}
+                    />)
+                }}/>
+
+            {/*
             <ScrollView
                 keyboardDismissMode='on-drag'
                 keyboardShouldPersistTaps='always'
@@ -42,6 +53,8 @@ export default function SearchModel({visible, data, notFound}) {
                     ))
                 }
             </ScrollView>
+            */}
+
         </View>
     );
 };

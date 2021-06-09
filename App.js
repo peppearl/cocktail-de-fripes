@@ -7,40 +7,30 @@ import BottomNavBar from "./app/navigation/BottomNavBar";
 import * as firebase from 'firebase';
 import AppLoading from "expo-app-loading";
 import AuthStackScreen from "./app/navigation/AuthStackScreen"
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-let firebaseConfig = {
-    apiKey: "AIzaSyB8k0kiGxZSiJyJSpEaTqcZw-jJKN9siUY",
-    authDomain: "cocktail-de-fripes.firebaseapp.com",
-    projectId: "cocktail-de-fripes",
-    storageBucket: "cocktail-de-fripes.appspot.com",
-    messagingSenderId: "290163580844",
-    appId: "1:290163580844:web:ef5ed7a9c079e1aafc2409",
-    measurementId: "G-7SKC4079Q1"
-};
-// Initialize Firebase
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}else {
-    firebase.app(); // if already initialized, use that one
-}
+import {AuthContext, AuthProvider} from "./Auth";
+import {useContext, useState} from "react";
 
 export default function App() {
-    const userLoggedIn = false;
+    const [currentUser, setCurrentUser] = useState(false);
 
-    if (userLoggedIn === false) {
+    //const { currentUser } = useContext(AuthContext);
+
+    if (!currentUser) {
         return (
-            <NavigationContainer>
-                <AuthStackScreen/>
-            </NavigationContainer>
+            <AuthProvider>
+                <NavigationContainer>
+                    <AuthStackScreen/>
+                </NavigationContainer>
+            </AuthProvider>
         );
     } else {
         return (
-            <NavigationContainer>
-                <StatusBar/>
-                <BottomNavBar/>
-            </NavigationContainer>
+            <AuthProvider>
+                <NavigationContainer>
+                    <StatusBar/>
+                    <BottomNavBar/>
+                </NavigationContainer>
+            </AuthProvider>
         )
     }
     /*

@@ -13,28 +13,22 @@ export default function ThriftScreen() {
     const [allThrift, setAllThrift] = useState([]);
     const [loading, setLoading] = useState(false)
 
-
-    //const friperies = (data) => {
-    //    return data
-    //}
-
     const allFripes = async () => {
         setLoading(true);
         const allThrifts = await thriftApi.getAll()
         setAllThrift(allThrifts);
         setLoading(false);
     }
-
     useEffect(() => {
         allFripes()
     }, [])
-
     return (
         <>
             <ActivityIndicator visible={loading}/>
             <Screen isSearchFocused={isSearchFocused}>
                 <View style={styles.container}>
                     <View style={styles.title}>
+                        <View style={{marginBottom: 50}}/>
                         <Title size={36}>Friperies</Title>
                     </View>
                     <SearchBar setSearchFocused={setSearchFocused}/>
@@ -47,7 +41,7 @@ export default function ThriftScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 15
+        marginHorizontal: 15
     },
     title: {
         alignItems: 'center',

@@ -29,6 +29,7 @@ export default function BlogScreen() {
             <Screen isSearchFocused={isSearchFocused}>
                 <View style={styles.container}>
                     <View style={styles.title}>
+                        <View style={{marginBottom: 50}}/>
                         <Title size={36}>Actualites</Title>
                     </View>
                     <SearchBar setSearchFocused={setSearchFocused}/>
@@ -45,7 +46,7 @@ export default function BlogScreen() {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 15
+        marginHorizontal: 15,
     },
     title: {
         alignItems: 'center',

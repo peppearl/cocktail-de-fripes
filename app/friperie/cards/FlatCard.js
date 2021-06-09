@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
     container: {
         overflow: 'hidden',
         marginTop: 10,
-
+        backgroundColor: '#fff'
     },
     image: {
         borderRadius: 8,

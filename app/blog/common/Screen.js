@@ -16,7 +16,6 @@ export default function Screen ({ children, isSearchFocused }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: StatusBar.currentHeight,
         paddingHorizontal: 15,
         backgroundColor: '#fff',
         flex: 1,

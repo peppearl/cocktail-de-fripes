@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, StatusBar, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 
 export default function Screen ({ children, isSearchFocused }) {
     const keyboardShouldPersistTaps = isSearchFocused ? 'always' : 'never';
@@ -16,7 +16,6 @@ export default function Screen ({ children, isSearchFocused }) {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: StatusBar.currentHeight,
         paddingHorizontal: 5,
         backgroundColor: '#FFF',
         flex: 1,

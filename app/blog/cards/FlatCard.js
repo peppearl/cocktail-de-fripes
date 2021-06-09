@@ -5,6 +5,7 @@ import Subtitle from "../common/Subtitle";
 
 export default function FlatCard({item, onPress}) {
     const {thumbnail, title, desc, date} = item;
+    console.log(item);
     return (
         <TouchableWithoutFeedback onPress={onPress}>
             <View style={[styles.container, styles]}>
