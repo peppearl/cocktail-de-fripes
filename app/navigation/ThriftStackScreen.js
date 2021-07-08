@@ -1,9 +1,6 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-
-//import ThriftListStyle from '../thrifting/lists/ThriftListStyle';
-//import ThriftListCity from '../thrifting/lists/ThriftListCity';
 import ThriftScreen from '../screens/ThriftScreen';
 import ThriftDetail from '../screens/ThriftDetail';
 import CarteScreen from "../screens/CarteScreen";

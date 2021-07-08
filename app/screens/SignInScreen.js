@@ -28,7 +28,7 @@ export default function SingInScreen({navigation}) {
                     } else {
                         alert(errorMessage);
                     }
-                    console.log(error);
+                    console.log(errorCode);
                 })
                 .then(navigation.replace('Home', {user}))
 

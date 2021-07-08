@@ -1,6 +1,5 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function FormInput ({labelValue, placeholderText, iconType, ...rest}) {
     return (

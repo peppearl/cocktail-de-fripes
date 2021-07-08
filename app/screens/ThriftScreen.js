@@ -22,6 +22,7 @@ export default function ThriftScreen() {
     useEffect(() => {
         allFripes()
     }, [])
+
     return (
         <>
             <ActivityIndicator visible={loading}/>
